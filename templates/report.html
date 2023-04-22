@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Welcome, {{ user.username }}!</p>
+<div class="container">
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>Pregnancies</th>
+            <th>Glucose</th>
+            <th>BloodPressure</th>
+            <th>SkinThickness</th>
+            <th>Insulin</th>
+            <th>BMI</th>
+            <th>DPF</th>
+            <th>Age</th>
+            <th>Result</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.timestamp }}</td>
+            <td>{{ row.pregnancies }}</td>
+            <td>{{ row.glucose }}</td>
+            <td>{{ row.blood_pressure }}</td>
+            <td>{{ row.skin_thickness }}</td>
+            <td>{{ row.insulin }}</td>
+            <td>{{ row.bmi }}</td>
+            <td>{{ row.dpf }}</td>
+            <td>{{ row.age }}</td>
+            <td>{{ row.result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
