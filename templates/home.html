@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+<html>
+  <head>
+    <title>home</title>
+  </head>
+  <body>
+    <div class="container20">
+      <div class="left-column">
+        <h2 style="margin-bottom: 20px; color: rgb(220, 233, 233)">
+          What is diabetes?
+        </h2>
+        <b><p>
+          Diabetes is a condition that happens when your blood sugar (glucose)
+          is too high. It develops when your pancreas doesn’t make enough
+          insulin or any at all, or when your body isn’t responding to the
+          effects of insulin properly.
+        </p>
+        <p>
+          Diabetes affects people of all ages. Most forms of diabetes are
+          chronic (lifelong), and all forms are manageable with medications
+          and/or lifestyle changes
+        </p></b>
+
+        {%if session.get(user_id)%}
+        <a href="{{ url_for('signup') }}" class="button_go"
+          >Check Presence of diabetes</a
+        >
+        {%else%}
+        <a href="{{ url_for('dashboard') }}" class="button_go"><b>Get started</b></a>
+        {%endif%}
+      </div>
+      <div class="right-column">
+        <img src="https://modulai.io/wp-content/uploads/2022/03/Digital-Diabetes-Analytical-640x256.png" alt="Image" />
+      </div>
+    </div>
+  </body>
+</html>
+
+{% endblock %}

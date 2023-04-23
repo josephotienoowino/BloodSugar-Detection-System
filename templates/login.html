@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% block content %}
+<div class="main-container">
+  <section class="h-100 gradient-form">
+    <div class="container py-1 h-80">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-3 mx-md-2">
+                  <div class="text-center">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                      style="width: 100px"
+                      alt="logo"
+                    />
+                    <h4 class="mt-1 mb-5 pb-1">Diabetes detection system</h4>
+                  </div>
+
+                  {% with messages = get_flashed_messages() %} {% if messages %}
+                  <ul class="messages" style="color: brown">
+                    {% for message in messages %} {{ message }} {% endfor %}
+                  </ul>
+                  {% endif %} {% endwith %}
+
+                  <form method="POST" action="{{ url_for('login') }}">
+                    <p>Please login to your account</p>
+
+                    <div class="form-outline mb-4">
+                      <label for="email">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label for="password">Password</label>
+                      <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div class="text-center pt-1 mb-0 pb-1">
+                      <button type="submit" class="btn btn-primary">
+                        Login
+                      </button>
+                    </div>
+
+                    <div
+                      class="d-flex align-items-center justify-content-center pb-4"
+                    >
+                      <p class="mb-0 me-2">Don't have an account?</p>
+                      <button
+                        type="button"
+                        class="btn btn-outline-danger"
+                        onclick="window.location.href='{{ url_for('signup') }}'"
+                      >
+                        Create New
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-2 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Welcome to diabetes detection system!</h4>
+                  <p class="small mb-0">
+                    Not a member yet? Sign up now to:
+
+                    <li>Identify your risk of developing diabetes</li>
+                    
+                    <li>Receive personalized recommendations for prevention and
+                      management</li>
+                    
+                    <li>Track your progress and monitor your health over time</li>
+                    
+                    <li>Don't wait until it's too late. Early detection and
+                      management of diabetes can make a huge difference in your
+                      health.</li>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+</div>
